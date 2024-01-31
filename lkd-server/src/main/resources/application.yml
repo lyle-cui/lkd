@@ -1,0 +1,23 @@
+server:
+  port: 8090
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource: #数据库
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lkd?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+#日志级别
+logging:
+  level:
+    com.lkd: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+#mybatis配置
+mybatis:
+  type-aliases-package: com.lkd.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
