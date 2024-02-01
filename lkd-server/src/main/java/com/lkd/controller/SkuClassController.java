@@ -32,4 +32,10 @@ public class SkuClassController {
         boolean flag=skuClassService.update(skuClass);
         return Result.success(flag);
     }
+    //删除分类
+    @DeleteMapping("/{classId}")
+    public Result deleteById(@PathVariable Integer classId){
+        boolean flag=skuClassService.deleteById(classId);
+        return Result.success(flag);
+    }
 }

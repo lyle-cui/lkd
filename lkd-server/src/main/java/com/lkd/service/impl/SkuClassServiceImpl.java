@@ -33,4 +33,10 @@ public class SkuClassServiceImpl implements SkuClassService {
     public boolean update(SkuClass skuClass) {
         return skuClassMapper.update(skuClass);
     }
+
+    //删除分类
+    @Override
+    public boolean deleteById(Integer classId) {
+        return skuClassMapper.deleteById(classId);
+    }
 }

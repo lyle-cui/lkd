@@ -12,4 +12,7 @@ public interface SkuClassService {
 
     //修改分类
     boolean update(SkuClass skuClass);
+
+    //删除分类
+    boolean deleteById(Integer classId);
 }
