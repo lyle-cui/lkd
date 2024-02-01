@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lkd.mapper.SkuClassMapper">
+
+    <select id="search" resultType="com.lkd.entity.SkuClass">
+        select * from tb_sku_class
+        <where>
+            <if test="className!=null and className!=''">
+                class_name like concat('%',#{className},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
