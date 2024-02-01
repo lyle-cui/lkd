@@ -9,4 +9,7 @@ public interface SkuClassService {
 
     //新增分类
     boolean save(SkuClass skuClass);
+
+    //修改分类
+    boolean update(SkuClass skuClass);
 }

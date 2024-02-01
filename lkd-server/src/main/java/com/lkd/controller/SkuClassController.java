@@ -26,4 +26,10 @@ public class SkuClassController {
         boolean flag = skuClassService.save(skuClass);
         return Result.success(flag);
     }
+    //修改分类
+    @PutMapping
+    public Result update(@RequestBody SkuClass skuClass){
+        boolean flag=skuClassService.update(skuClass);
+        return Result.success(flag);
+    }
 }

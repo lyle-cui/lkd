@@ -27,4 +27,10 @@ public class SkuClassServiceImpl implements SkuClassService {
     public boolean save(SkuClass skuClass) {
         return skuClassMapper.save(skuClass);
     }
+
+    //修改分类
+    @Override
+    public boolean update(SkuClass skuClass) {
+        return skuClassMapper.update(skuClass);
+    }
 }
