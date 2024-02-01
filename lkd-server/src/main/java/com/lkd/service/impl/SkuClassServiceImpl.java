@@ -21,4 +21,10 @@ public class SkuClassServiceImpl implements SkuClassService {
         Page<SkuClass> page=(Page<SkuClass>) skuClassMapper.search(className);
         return new PageBean<>(pageIndex,pageSize, (long) page.getPages(),page.getTotal(),page.getResult());
     }
+
+    //新增分类
+    @Override
+    public boolean save(SkuClass skuClass) {
+        return skuClassMapper.save(skuClass);
+    }
 }
