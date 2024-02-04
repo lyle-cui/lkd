@@ -8,4 +8,7 @@ import com.lkd.vo.SkuVO;
 public interface SkuService {
     //分页查询
     PageBean<SkuVO> search(Integer pageIndex, Integer pageSize, String skuName);
+
+    //保存
+    Boolean save(Sku sku);
 }

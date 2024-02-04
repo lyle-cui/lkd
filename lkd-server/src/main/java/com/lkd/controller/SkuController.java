@@ -6,9 +6,7 @@ import com.lkd.result.Result;
 import com.lkd.service.SkuService;
 import com.lkd.vo.SkuVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //商品管理
 @RestController
@@ -22,5 +20,10 @@ public class SkuController {
     public Result search(Integer pageIndex, Integer pageSize, String skuName) {
         PageBean<SkuVO> pageBean = skuService.search(pageIndex, pageSize, skuName);
         return Result.success(pageBean);
+    }
+    //新增商品
+    @PostMapping
+    public Boolean save(@RequestBody Sku sku) {
+        return skuService.save(sku);
     }
 }
