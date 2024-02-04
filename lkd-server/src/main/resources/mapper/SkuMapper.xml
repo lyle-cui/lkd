@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lkd.mapper.SkuMapper">
+
+    <!--分页模糊查询-->
+    <select id="search" resultMap="skuVO">
+        select * from tb_sku s left join tb_sku_class c on s.class_id=c.class_id
+        <where>
+            <if test="skuName!=null and skuName!=''">
+                sku_name like concat('%',#{skuName},'%')
+            </if>
+        </where>
+    </select>
+    <resultMap id="skuVO" type="com.lkd.vo.SkuVO">
+        <id property="skuId" column="sku_id"/>
+        <result property="skuName" column="sku_name"/>
+        <result property="classId" column="class_id"/>
+        <result property="skuImage" column="sku_image"/>
+        <result property="unit" column="unit"/>
+        <result property="price" column="price"/>
+        <result property="brandName" column="brand_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="isDiscount" column="is_discount"/>
+        <result property="updateTime" column="update_time"/>
+        <association property="skuClass" column="sku_class" resultMap="skuClassPO"/>
+    </resultMap>
+    <resultMap id="skuClassPO" type="skuClass">
+        <id property="classId" column="class_id"/>
+        <result property="className" column="class_name"/>
+        <result property="parentId" column="parent_id"/>
+    </resultMap>
+</mapper>
