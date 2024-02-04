@@ -26,4 +26,9 @@ public class SkuController {
     public Boolean save(@RequestBody Sku sku) {
         return skuService.save(sku);
     }
+    //修改商品
+    @PutMapping
+    public Boolean update(@RequestBody Sku sku) {
+        return skuService.update(sku);
+    }
 }

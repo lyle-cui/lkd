@@ -11,4 +11,7 @@ public interface SkuService {
 
     //保存
     Boolean save(Sku sku);
+
+    //更新
+    Boolean update(Sku sku);
 }

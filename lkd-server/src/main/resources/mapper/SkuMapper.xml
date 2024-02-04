@@ -4,6 +4,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lkd.mapper.SkuMapper">
+    <!--更新-->
+    <update id="update">
+        update tb_sku
+        <set>
+            <if test="skuName!=null and skuName!=''">
+                sku_name=#{skuName},
+            </if>
+            <if test="skuImage!=null and skuImage!=''">
+                sku_image=#{skuImage},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="classId!=null">
+                class_id=#{classId},
+            </if>
+            <if test="isDiscount!=null">
+                is_discount=#{isDiscount},
+            </if>
+            <if test="unit!=null and unit!=''">
+                unit=#{unit},
+            </if>
+            <if test="brandName!=null and brandName!=''">
+                brand_name=#{brandName},
+            </if>
+            <if test="updateTime!=null">
+                update_time=#{updateTime},
+            </if>
+        </set>
+        where sku_id=#{skuId}
+    </update>
 
     <!--分页模糊查询-->
     <select id="search" resultMap="skuVO">

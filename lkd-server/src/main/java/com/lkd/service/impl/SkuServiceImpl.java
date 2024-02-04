@@ -35,4 +35,11 @@ public class SkuServiceImpl implements SkuService {
         sku.setUpdateTime(LocalDateTime.now());
         return skuMapper.save(sku);
     }
+
+    //修改
+    @Override
+    public Boolean update(Sku sku) {
+        sku.setUpdateTime(LocalDateTime.now());
+        return skuMapper.update(sku);
+    }
 }

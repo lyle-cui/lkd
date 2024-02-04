@@ -4,6 +4,7 @@ import com.lkd.entity.Sku;
 import com.lkd.vo.SkuVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface SkuMapper {
     //保存
     @Insert("insert into tb_sku values (null,#{skuName},#{skuImage},#{price},#{classId},#{isDiscount},#{unit},#{brandName},#{createTime},#{updateTime})")
     Boolean save(Sku sku);
+
+    //更新
+    Boolean update(Sku sku);
 }
