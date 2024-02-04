@@ -26,3 +26,8 @@ lkd:
   jwt:
     secret: itheima
     ttl: 86400000
+  oss:
+    accessKeyId: LTAI5tQVAmHS1A4P2au3cRaB
+    accessKeySecret: Mia73CwiufvcEHuZi6QjpuTlu3M6YQ
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: tlias-gxm-192
