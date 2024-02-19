@@ -13,4 +13,7 @@ public interface PartnerService {
 
     //根据id查询合作商详情
     PartnerVO findById(Integer id);
+
+    //修改合作商
+    boolean update(Partner partner);
 }

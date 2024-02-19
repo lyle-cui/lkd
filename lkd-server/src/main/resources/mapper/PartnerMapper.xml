@@ -4,6 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lkd.mapper.PartnerMapper">
+    <!--修改合作商-->
+    <update id="update">
+        update tb_partner
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="contact != null and contact !=''">
+                contact = #{contact},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="ratio != null">
+                ratio = #{ratio},
+            </if>
+            <if test="account != null and account != ''">
+                account = #{account},
+            </if>
+            update_time = now()
+        </set>
+        where id = #{id}
+    </update>
 
     <!--条件模糊查询-->
     <select id="search" resultType="com.lkd.entity.Partner">

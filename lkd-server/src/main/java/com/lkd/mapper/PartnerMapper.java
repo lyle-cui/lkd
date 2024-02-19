@@ -21,4 +21,7 @@ public interface PartnerMapper {
     //根据id查询合作商
     @Select("select * from tb_partner where id = #{id}")
     Partner getById(Integer id);
+
+    //更新合作商
+    boolean update(Partner partner);
 }

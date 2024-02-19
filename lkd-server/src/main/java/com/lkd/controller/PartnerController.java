@@ -37,4 +37,11 @@ public class PartnerController {
         return Result.success(partnerVO);
     }
 
+    //修改合作商信息
+    @PutMapping
+    public Result update(@RequestBody Partner partner){
+        boolean result = partnerService.update(partner);
+        return Result.success(result);
+    }
+
 }

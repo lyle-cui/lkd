@@ -58,4 +58,10 @@ public class PartnerServiceImpl implements PartnerService {
         return partnerVO;
     }
 
+    //修改合作商
+    @Override
+    public boolean update(Partner partner) {
+        return partnerMapper.update(partner);
+    }
+
 }
