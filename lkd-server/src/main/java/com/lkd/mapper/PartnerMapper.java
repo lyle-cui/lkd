@@ -4,6 +4,7 @@ import com.lkd.entity.Partner;
 import com.lkd.vo.PartnerVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface PartnerMapper {
     @Insert("insert into tb_partner values (null,#{name},#{password},#{account},#{mobile},#{phone},#{email}," +
             "#{province},#{city},#{county},#{addr},#{contact},#{ratio},#{status},now(),now())")
     boolean save(Partner partner);
+
+    //根据id查询合作商
+    @Select("select * from tb_partner where id = #{id}")
+    Partner getById(Integer id);
 }

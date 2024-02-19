@@ -47,4 +47,15 @@ public class PartnerServiceImpl implements PartnerService {
         return partnerMapper.save(partner);
     }
 
+    //根据id查询合作商详情
+    @Override
+    public PartnerVO findById(Integer id) {
+        //获取合作商信息
+        PartnerVO partnerVO = BeanUtil.copyProperties(partnerMapper.getById(id), PartnerVO.class);
+        //获取合作商设备数
+        Integer vmCount = vendingMachineMapper.countByOwnerId(id);
+        partnerVO.setVmCount(vmCount);
+        return partnerVO;
+    }
+
 }

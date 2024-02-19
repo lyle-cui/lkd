@@ -10,4 +10,7 @@ public interface PartnerService {
 
     //新增合作商
     boolean save(Partner partner);
+
+    //根据id查询合作商详情
+    PartnerVO findById(Integer id);
 }

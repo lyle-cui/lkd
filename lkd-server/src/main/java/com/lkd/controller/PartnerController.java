@@ -30,5 +30,11 @@ public class PartnerController {
         return Result.success(result);
     }
 
+    //根据id查询合作商详情
+    @GetMapping("/{id}")
+    public Result findById(@PathVariable Integer id){
+        PartnerVO partnerVO = partnerService.findById(id);
+        return Result.success(partnerVO);
+    }
 
 }
