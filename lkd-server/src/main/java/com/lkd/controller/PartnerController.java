@@ -44,4 +44,11 @@ public class PartnerController {
         return Result.success(result);
     }
 
+    //删除合作商
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id){
+        boolean result = partnerService.delete(id);
+        return Result.success(result);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.lkd.mapper;
 
 import com.lkd.entity.Partner;
 import com.lkd.vo.PartnerVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -24,4 +25,8 @@ public interface PartnerMapper {
 
     //更新合作商
     boolean update(Partner partner);
+
+    //删除合作商
+    @Delete("delete from tb_partner where id = #{id}")
+    boolean delete(Integer id);
 }

@@ -64,4 +64,10 @@ public class PartnerServiceImpl implements PartnerService {
         return partnerMapper.update(partner);
     }
 
+    //删除合作商
+    @Override
+    public boolean delete(Integer id) {
+        return partnerMapper.delete(id);
+    }
+
 }

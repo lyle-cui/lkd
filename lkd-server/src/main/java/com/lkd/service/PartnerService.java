@@ -16,4 +16,7 @@ public interface PartnerService {
 
     //修改合作商
     boolean update(Partner partner);
+
+    //删除合作商
+    boolean delete(Integer id);
 }
