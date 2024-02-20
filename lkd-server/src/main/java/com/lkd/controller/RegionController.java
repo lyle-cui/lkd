@@ -27,4 +27,11 @@ public class RegionController {
         boolean result = regionService.save(region);
         return Result.success(result);
     }
+
+    //区域修改
+    @PutMapping
+    public Result update(@RequestBody Region region){
+        boolean result = regionService.update(region);
+        return Result.success(result);
+    }
 }

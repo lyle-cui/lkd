@@ -4,6 +4,7 @@ import com.lkd.entity.Region;
 import com.lkd.vo.RegionVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface RegionMapper {
     //区域保存
     @Insert("insert into tb_region values (null,#{name},#{remark})")
     boolean save(Region region);
+
+    //区域更新
+    boolean update(Region region);
 }

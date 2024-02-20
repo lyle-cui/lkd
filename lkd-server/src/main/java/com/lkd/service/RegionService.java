@@ -10,4 +10,7 @@ public interface RegionService {
 
     //区域保存
     boolean save(Region region);
+
+    //区域更新
+    boolean update(Region region);
 }

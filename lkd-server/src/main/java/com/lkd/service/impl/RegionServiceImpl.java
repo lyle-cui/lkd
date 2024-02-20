@@ -41,4 +41,10 @@ public class RegionServiceImpl implements RegionService {
     public boolean save(Region region) {
         return regionMapper.save(region);
     }
+
+    //区域更新
+    @Override
+    public boolean update(Region region) {
+        return regionMapper.update(region);
+    }
 }
