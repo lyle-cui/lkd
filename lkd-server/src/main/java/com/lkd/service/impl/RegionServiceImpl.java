@@ -2,6 +2,7 @@ package com.lkd.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.lkd.entity.Region;
 import com.lkd.mapper.NodeMapper;
 import com.lkd.mapper.RegionMapper;
 import com.lkd.result.PageBean;
@@ -33,5 +34,11 @@ public class RegionServiceImpl implements RegionService {
         }
         Page<RegionVO> page = (Page<RegionVO>) regionVOList;
         return new PageBean<>(pageIndex, pageSize, (long) page.getPages(), page.getTotal(), regionVOList);
+    }
+
+    //区域保存
+    @Override
+    public boolean save(Region region) {
+        return regionMapper.save(region);
     }
 }

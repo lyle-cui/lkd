@@ -1,5 +1,6 @@
 package com.lkd.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -16,12 +17,13 @@ public class Region implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    
+
     private Long id;
 
     /**
      * 区域名称
      */
+    @JsonProperty("regionName")
     private String name;
 
     /**

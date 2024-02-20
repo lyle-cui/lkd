@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegionVO extends Region {
+public class RegionVO {
+    private Long id;
+    private String name;
+    private String remark;
     private Integer nodeCount;
 }
