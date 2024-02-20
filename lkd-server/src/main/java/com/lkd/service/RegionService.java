@@ -2,6 +2,7 @@ package com.lkd.service;
 
 import com.lkd.entity.Region;
 import com.lkd.result.PageBean;
+import com.lkd.vo.NodeVO;
 import com.lkd.vo.RegionVO;
 
 public interface RegionService {
@@ -13,4 +14,7 @@ public interface RegionService {
 
     //区域更新
     boolean update(Region region);
+
+    //根据区域id查询该区域下的点位列表
+    PageBean<NodeVO> searchNode(Integer regionId, Integer pageIndex, Integer pageSize);
 }

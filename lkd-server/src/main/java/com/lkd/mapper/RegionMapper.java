@@ -4,6 +4,7 @@ import com.lkd.entity.Region;
 import com.lkd.vo.RegionVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -19,4 +20,8 @@ public interface RegionMapper {
 
     //区域更新
     boolean update(Region region);
+
+    //区域查询
+    @Select("select * from tb_region where id = #{regionId}")
+    RegionVO findById(Integer regionId);
 }
