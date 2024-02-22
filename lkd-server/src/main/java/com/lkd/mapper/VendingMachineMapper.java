@@ -1,8 +1,11 @@
 package com.lkd.mapper;
 
+import com.lkd.vo.VendingMachineVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface VendingMachineMapper {
@@ -17,4 +20,8 @@ public interface VendingMachineMapper {
     //根据点位id删除售货机
     @Delete("delete from tb_vending_machine where node_id = #{nodeId}")
     boolean deleteByNodeId(Long nodeId);
+
+    //根据点位id查询售货机
+    @Select("select * from tb_vending_machine where node_id = #{nodeId}")
+    List<VendingMachineVO> vmListByNodeId(Long nodeId);
 }

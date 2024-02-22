@@ -29,4 +29,8 @@ public interface NodeMapper {
     //删除点位
     @Delete("delete from tb_node where id = #{nodeId}")
     boolean delete(Long nodeId);
+
+    //根据id查询点位
+    @Select("select * from tb_node where id = #{nodeId}")
+    NodeVO findById(Long nodeId);
 }

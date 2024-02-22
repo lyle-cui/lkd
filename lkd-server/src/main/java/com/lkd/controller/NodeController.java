@@ -3,8 +3,11 @@ package com.lkd.controller;
 import com.lkd.entity.Node;
 import com.lkd.result.Result;
 import com.lkd.service.NodeService;
+import com.lkd.vo.VendingMachineVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/vm-service/node")
@@ -31,5 +34,12 @@ public class NodeController {
     public Result delete(@PathVariable("nodeId") Long nodeId) {
         boolean result = nodeService.delete(nodeId);
         return Result.success(result);
+    }
+
+    //根据点位id查询设备列表
+    @GetMapping("/vmList/{nodeId}")
+    public Result vmListByNodeId(@PathVariable("nodeId") Long nodeId) {
+        List<VendingMachineVO> vmList = nodeService.vmListByNodeId(nodeId);
+        return Result.success(vmList);
     }
 }

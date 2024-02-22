@@ -1,6 +1,9 @@
 package com.lkd.service;
 
 import com.lkd.entity.Node;
+import com.lkd.vo.VendingMachineVO;
+
+import java.util.List;
 
 public interface NodeService {
     //新增点位
@@ -11,4 +14,7 @@ public interface NodeService {
 
     //删除点位
     boolean delete(Long nodeId);
+
+    //根据点位id查询点位下的虚拟机
+    List<VendingMachineVO> vmListByNodeId(Long nodeId);
 }
