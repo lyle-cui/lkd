@@ -60,24 +60,25 @@ public class NodeServiceImpl implements NodeService {
             Integer vmTypeId = vendingMachineVO.getVmType();
             VmType vmType = vmTypeMapper.findById(vmTypeId);
             vendingMachineVO.setType(vmType);
-            //查询点位信息
+
+            //查询区域信息
             Long regionId = vendingMachineVO.getRegionId();
-            List<NodeVO> nodeVOList = nodeMapper.search(null, regionId);
-            //遍历点位列表
-            for (NodeVO nodeVO : nodeVOList) {
-                //查询区域信息
-                RegionVO region = regionMapper.findById(nodeVO.getRegionId());
-                region.setNodeCount(nodeVOList.size());
-                vendingMachineVO.setRegion(region);
-                nodeVO.setRegion(region);
-                //查询设备数量
-                Integer vmCount = vendingMachineMapper.countByNodeId(nodeId);
-                nodeVO.setVmCount(vmCount);
-                //查询商圈信息
-                Integer businessId = nodeVO.getBusinessId();
-                Business business = businessMapper.findById(businessId);
-                nodeVO.setBusinessType(business);
-            }
+            RegionVO region = regionMapper.findById(regionId);
+            //查询点位数量
+            region.setNodeCount(nodeMapper.countByRegionId(regionId));
+            vendingMachineVO.setRegion(region);
+
+            //查询点位信息
+            NodeVO nodeVO = nodeMapper.findById(nodeId);
+            nodeVO.setRegion(region);
+            //查询设备数量
+            Integer vmCount = vendingMachineMapper.countByNodeId(nodeId);
+            nodeVO.setVmCount(vmCount);
+            //查询商圈信息
+            Integer businessId = nodeVO.getBusinessId();
+            Business business = businessMapper.findById(businessId);
+            nodeVO.setBusinessType(business);
+            vendingMachineVO.setNode(nodeVO);
         }
         return vmList;
     }
