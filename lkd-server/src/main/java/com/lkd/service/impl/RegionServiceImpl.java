@@ -58,7 +58,7 @@ public class RegionServiceImpl implements RegionService {
 
     //根据区域id查询该区域下的点位列表
     @Override
-    public PageBean<NodeVO> searchNode(String name, Integer regionId, Integer pageIndex, Integer pageSize) {
+    public PageBean<NodeVO> searchNode(String name, Long regionId, Integer pageIndex, Integer pageSize) {
         //开启分页
         PageHelper.startPage(pageIndex, pageSize);
         //查询点位列表

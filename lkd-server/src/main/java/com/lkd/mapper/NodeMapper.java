@@ -16,7 +16,7 @@ public interface NodeMapper {
     Integer countByRegionId(Long regionId);
 
     // 查询点位
-    List<NodeVO> search(String name, Integer regionId);
+    List<NodeVO> search(String name, Long regionId);
 
     //新增点位
     @Insert("insert into tb_node values (null,#{name},#{addr},#{areaCode},#{createUserId},#{regionId},#{businessId}," +

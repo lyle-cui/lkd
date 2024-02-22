@@ -62,7 +62,7 @@ public class NodeServiceImpl implements NodeService {
             vendingMachineVO.setType(vmType);
             //查询点位信息
             Long regionId = vendingMachineVO.getRegionId();
-            List<NodeVO> nodeVOList = nodeMapper.search(null, Math.toIntExact(regionId));
+            List<NodeVO> nodeVOList = nodeMapper.search(null, regionId);
             //遍历点位列表
             for (NodeVO nodeVO : nodeVOList) {
                 //查询区域信息
