@@ -16,4 +16,10 @@ public class NodeServiceImpl implements NodeService {
     public boolean save(Node node) {
         return nodeMapper.save(node);
     }
+
+    //修改点位
+    @Override
+    public boolean update(Node node) {
+        return nodeMapper.update(node);
+    }
 }

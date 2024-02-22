@@ -4,10 +4,7 @@ import com.lkd.entity.Node;
 import com.lkd.result.Result;
 import com.lkd.service.NodeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/vm-service/node")
@@ -19,6 +16,13 @@ public class NodeController {
     @PostMapping
     public Result save(@RequestBody Node node){
         boolean result = nodeService.save(node);
+        return Result.success(result);
+    }
+
+    //修改点位
+    @PutMapping
+    public Result update(@RequestBody Node node){
+        boolean result = nodeService.update(node);
         return Result.success(result);
     }
 }

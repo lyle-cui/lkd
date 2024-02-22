@@ -21,4 +21,7 @@ public interface NodeMapper {
     @Insert("insert into tb_node values (null,#{name},#{addr},#{areaCode},#{createUserId},#{regionId},#{businessId}," +
             "#{ownerId},#{ownerName},now(),now())")
     boolean save(Node node);
+
+    //更新点位
+    boolean update(Node node);
 }

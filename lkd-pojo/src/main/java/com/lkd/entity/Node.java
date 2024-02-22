@@ -1,5 +1,6 @@
 package com.lkd.entity;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -17,7 +18,8 @@ public class Node implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    
+
+    @JsonAlias("nodeId")
     private Long id;
 
     /**
