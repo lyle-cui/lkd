@@ -2,6 +2,7 @@ package com.lkd.mapper;
 
 import com.lkd.entity.Node;
 import com.lkd.vo.NodeVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -24,4 +25,8 @@ public interface NodeMapper {
 
     //更新点位
     boolean update(Node node);
+
+    //删除点位
+    @Delete("delete from tb_node where id = #{nodeId}")
+    boolean delete(Long nodeId);
 }

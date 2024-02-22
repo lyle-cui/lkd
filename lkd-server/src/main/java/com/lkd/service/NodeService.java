@@ -8,4 +8,7 @@ public interface NodeService {
 
     //修改点位
     boolean update(Node node);
+
+    //删除点位
+    boolean delete(Long nodeId);
 }

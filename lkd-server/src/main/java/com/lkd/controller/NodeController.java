@@ -14,15 +14,22 @@ public class NodeController {
 
     //新增点位
     @PostMapping
-    public Result save(@RequestBody Node node){
+    public Result save(@RequestBody Node node) {
         boolean result = nodeService.save(node);
         return Result.success(result);
     }
 
     //修改点位
     @PutMapping
-    public Result update(@RequestBody Node node){
+    public Result update(@RequestBody Node node) {
         boolean result = nodeService.update(node);
+        return Result.success(result);
+    }
+
+    //删除点位
+    @DeleteMapping("/{nodeId}")
+    public Result delete(@PathVariable("nodeId") Long nodeId) {
+        boolean result = nodeService.delete(nodeId);
         return Result.success(result);
     }
 }
