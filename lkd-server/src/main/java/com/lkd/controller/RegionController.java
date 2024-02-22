@@ -23,14 +23,14 @@ public class RegionController {
     }
 
     //区域保存
-    @PostMapping
+    @PostMapping("/region")
     public Result save(@RequestBody Region region) {
         boolean result = regionService.save(region);
         return Result.success(result);
     }
 
     //区域修改
-    @PutMapping
+    @PutMapping("/region")
     public Result update(@RequestBody Region region) {
         boolean result = regionService.update(region);
         return Result.success(result);
