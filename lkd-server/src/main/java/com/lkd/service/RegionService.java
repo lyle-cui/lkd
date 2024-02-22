@@ -16,5 +16,5 @@ public interface RegionService {
     boolean update(Region region);
 
     //根据区域id查询该区域下的点位列表
-    PageBean<NodeVO> searchNode(Integer regionId, Integer pageIndex, Integer pageSize);
+    PageBean<NodeVO> searchNode(String name, Integer regionId, Integer pageIndex, Integer pageSize);
 }

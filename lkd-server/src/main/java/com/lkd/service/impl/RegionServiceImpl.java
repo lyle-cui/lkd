@@ -58,18 +58,17 @@ public class RegionServiceImpl implements RegionService {
 
     //根据区域id查询该区域下的点位列表
     @Override
-    public PageBean<NodeVO> searchNode(Integer regionId, Integer pageIndex, Integer pageSize) {
+    public PageBean<NodeVO> searchNode(String name, Integer regionId, Integer pageIndex, Integer pageSize) {
         //开启分页
         PageHelper.startPage(pageIndex, pageSize);
         //查询点位列表
-        List<NodeVO> nodeVOList = nodeMapper.search(regionId);
+        List<NodeVO> nodeVOList = nodeMapper.search(name, regionId);
         Page<NodeVO> page = (Page<NodeVO>) nodeVOList;
-        //查询区域信息
-        RegionVO region = regionMapper.findById(regionId);
-        region.setNodeCount(nodeVOList.size());
         //遍历点位列表
         for (NodeVO nodeVO : nodeVOList) {
-            //设置区域信息
+            //查询区域信息
+            RegionVO region = regionMapper.findById(nodeVO.getRegionId());
+            region.setNodeCount(nodeVOList.size());
             nodeVO.setRegion(region);
             //查询设备数量
             Long nodeId = nodeVO.getId();

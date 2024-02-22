@@ -38,8 +38,8 @@ public class RegionController {
 
     //根据区域id查询该区域下的点位列表
     @GetMapping("/node/search")
-    public Result searchNode(Integer regionId, Integer pageIndex, Integer pageSize) {
-        PageBean<NodeVO> pageBean = regionService.searchNode(regionId, pageIndex, pageSize);
+    public Result searchNode(String name, Integer regionId, Integer pageIndex, Integer pageSize) {
+        PageBean<NodeVO> pageBean = regionService.searchNode(name,regionId, pageIndex, pageSize);
         return Result.success(pageBean);
     }
 }

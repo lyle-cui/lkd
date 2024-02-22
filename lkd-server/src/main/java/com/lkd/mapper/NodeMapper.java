@@ -13,6 +13,5 @@ public interface NodeMapper {
     Integer countByRegionId(Long regionId);
 
     // 查询节点
-    @Select("select * from tb_node where region_id = #{regionId}")
-    List<NodeVO> search(Integer regionId);
+    List<NodeVO> search(String name, Integer regionId);
 }
