@@ -8,4 +8,7 @@ import java.util.List;
 public interface VmTypeService {
     //分页查询
     PageBean<VmType> search(String name, Integer pageIndex, Integer pageSize);
+
+    //新增设备类型
+    boolean save(VmType vmType);
 }

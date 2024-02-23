@@ -24,4 +24,10 @@ public class VmTypeServiceImpl implements VmTypeService {
         Page<VmType> page = (Page<VmType>) vmTypes;
         return new PageBean<>(pageIndex, pageSize, (long) page.getPages(), page.getTotal(), vmTypes);
     }
+
+    //新增设备类型
+    @Override
+    public boolean save(VmType vmType) {
+        return vmTypeMapper.save(vmType);
+    }
 }

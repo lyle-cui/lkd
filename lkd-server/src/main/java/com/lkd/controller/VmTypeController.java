@@ -5,9 +5,7 @@ import com.lkd.result.PageBean;
 import com.lkd.result.Result;
 import com.lkd.service.VmTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,12 @@ public class VmTypeController {
     public Result search(String name, Integer pageIndex, Integer pageSize) {
         PageBean<VmType> vmTypeList = vmTypeService.search(name, pageIndex, pageSize);
         return Result.success(vmTypeList);
+    }
+
+    //新增设备类型
+    @PostMapping
+    public Result save(@RequestBody VmType vmType) {
+        boolean result =vmTypeService.save(vmType);
+        return Result.success(result);
     }
 }
