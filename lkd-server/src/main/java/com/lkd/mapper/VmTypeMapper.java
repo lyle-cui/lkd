@@ -1,6 +1,7 @@
 package com.lkd.mapper;
 
 import com.lkd.entity.VmType;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -22,4 +23,8 @@ public interface VmTypeMapper {
 
     //修改设备类型
     boolean update(VmType vmType);
+
+    //删除设备类型
+    @Delete("delete from tb_vm_type where type_id = #{typeId}")
+    boolean deleteById(Integer typeId);
 }

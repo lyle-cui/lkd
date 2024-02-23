@@ -36,4 +36,10 @@ public class VmTypeServiceImpl implements VmTypeService {
     public boolean update(VmType vmType) {
         return vmTypeMapper.update(vmType);
     }
+
+    //删除设备类型
+    @Override
+    public boolean deleteById(Integer typeId) {
+        return vmTypeMapper.deleteById(typeId);
+    }
 }

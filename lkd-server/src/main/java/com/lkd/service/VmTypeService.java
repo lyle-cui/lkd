@@ -14,4 +14,7 @@ public interface VmTypeService {
 
     //修改设备类型
     boolean update(VmType vmType);
+
+    //删除设备类型
+    boolean deleteById(Integer typeId);
 }

@@ -35,4 +35,11 @@ public class VmTypeController {
         boolean result =vmTypeService.update(vmType);
         return Result.success(result);
     }
+
+    //删除设备类型
+    @DeleteMapping("/{typeId}")
+    public Result deleteById(@PathVariable Integer typeId) {
+        boolean result =vmTypeService.deleteById(typeId);
+        return Result.success(result);
+    }
 }
