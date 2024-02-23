@@ -28,4 +28,11 @@ public class VmTypeController {
         boolean result =vmTypeService.save(vmType);
         return Result.success(result);
     }
+
+    //修改设备类型
+    @PutMapping
+    public Result update(@RequestBody VmType vmType) {
+        boolean result =vmTypeService.update(vmType);
+        return Result.success(result);
+    }
 }

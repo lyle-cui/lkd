@@ -30,4 +30,10 @@ public class VmTypeServiceImpl implements VmTypeService {
     public boolean save(VmType vmType) {
         return vmTypeMapper.save(vmType);
     }
+
+    //修改设备类型
+    @Override
+    public boolean update(VmType vmType) {
+        return vmTypeMapper.update(vmType);
+    }
 }

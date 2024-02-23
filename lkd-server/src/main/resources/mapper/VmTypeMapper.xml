@@ -4,6 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lkd.mapper.VmTypeMapper">
+    <!--修改设备类型-->
+    <update id="update">
+        update tb_vm_type
+        <set>
+            <if test="vmRow != null">
+                vm_row=#{vmRow},
+            </if>
+            <if test="vmCol != null">
+                vm_col=#{vmCol},
+            </if>
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="channelMaxCapacity != null">
+                channel_max_capacity=#{channelMaxCapacity},
+            </if>
+            <if test="model != null">
+                model=#{model},
+            </if>
+            <if test="image != null">
+                image=#{image},
+            </if>
+        </set>
+        where type_id=#{typeId}
+    </update>
     <!--条件模糊查询-->
     <select id="search" resultType="com.lkd.entity.VmType">
         select * from tb_vm_type

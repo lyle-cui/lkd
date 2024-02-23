@@ -11,4 +11,7 @@ public interface VmTypeService {
 
     //新增设备类型
     boolean save(VmType vmType);
+
+    //修改设备类型
+    boolean update(VmType vmType);
 }

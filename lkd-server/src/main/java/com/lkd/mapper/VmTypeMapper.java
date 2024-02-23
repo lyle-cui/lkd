@@ -19,4 +19,7 @@ public interface VmTypeMapper {
     //新增设备类型
     @Insert("insert into tb_vm_type values (null,#{vmRow},#{vmCol},#{name},#{channelMaxCapacity},#{model},#{image})")
     boolean save(VmType vmType);
+
+    //修改设备类型
+    boolean update(VmType vmType);
 }
