@@ -24,4 +24,7 @@ public interface VendingMachineMapper {
     //根据点位id查询售货机
     @Select("select * from tb_vending_machine where node_id = #{nodeId}")
     List<VendingMachineVO> vmListByNodeId(Long nodeId);
+
+    //条件查询
+    List<VendingMachineVO> vmListByInnerCode(String innerCode);
 }

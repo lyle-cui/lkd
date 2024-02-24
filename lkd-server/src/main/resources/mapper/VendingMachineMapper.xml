@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lkd.mapper.VendingMachineMapper">
+    <!--根据innerCode查询机器-->
+    <select id="vmListByInnerCode" resultType="com.lkd.vo.VendingMachineVO">
+        select * from tb_vending_machine
+        <where>
+            <if test="innerCode != null and innerCode != ''">
+                inner_code like concat('%', #{innerCode}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>
