@@ -34,4 +34,11 @@ public class UserController {
         boolean result = userService.update(user);
         return Result.success(result);
     }
+
+    //删除用户
+    @DeleteMapping("/{userId}")
+    public Result deleteById(@PathVariable Integer userId) {
+        boolean result = userService.deleteById(userId);
+        return Result.success(result);
+    }
 }

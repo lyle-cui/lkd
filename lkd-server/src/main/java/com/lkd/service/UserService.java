@@ -18,4 +18,7 @@ public interface UserService {
 
     //更新用户
     boolean update(User user);
+
+    //删除用户
+    boolean deleteById(Integer id);
 }

@@ -85,4 +85,10 @@ public class UserServiceImpl implements UserService {
     public boolean update(User user) {
         return userMapper.update(user);
     }
+
+    //删除用户
+    @Override
+    public boolean deleteById(Integer id) {
+        return userMapper.deleteById(id);
+    }
 }

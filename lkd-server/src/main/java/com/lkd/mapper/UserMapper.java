@@ -3,6 +3,7 @@ package com.lkd.mapper;
 
 import com.lkd.entity.User;
 import com.lkd.vo.UserVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -10,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface UserMapper{
+public interface UserMapper {
     //用户登录
     @Select("select * from tb_user where login_name=#{loginName}")
     User findByLoginName(String loginName);
@@ -24,4 +25,8 @@ public interface UserMapper{
 
     //更新用户
     boolean update(User user);
+
+    //删除用户
+    @Delete("delete from tb_user where id=#{id}")
+    boolean deleteById(Integer id);
 }
