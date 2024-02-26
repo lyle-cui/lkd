@@ -12,4 +12,7 @@ public interface UserService {
 
     //分页查询
     PageBean<UserVO> search(Integer pageIndex, Integer pageSize, String userName);
+
+    //新增用户
+    boolean save(User user);
 }

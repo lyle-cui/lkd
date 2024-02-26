@@ -1,5 +1,7 @@
 package com.lkd.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.lkd.serializer.BooleanToIntegerDeserializer;
 import lombok.Data;
 
 @Data
@@ -21,6 +23,7 @@ public class User {
 
     private String secret;
 
+    @JsonDeserialize(using = BooleanToIntegerDeserializer.class)
     private Integer status;
 
     private String roleCode;

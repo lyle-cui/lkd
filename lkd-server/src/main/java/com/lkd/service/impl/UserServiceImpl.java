@@ -6,6 +6,7 @@ import cn.hutool.crypto.SecureUtil;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.lkd.constant.MessageConstant;
+import com.lkd.constant.PasswordConstant;
 import com.lkd.constant.StatusConstant;
 import com.lkd.dto.LoginDto;
 import com.lkd.entity.Role;
@@ -65,5 +66,17 @@ public class UserServiceImpl implements UserService {
         }
         Page<UserVO> page = (Page<UserVO>) list;
         return new PageBean<>(pageIndex, pageSize, (long) page.getPages(), page.getTotal(), list);
+    }
+
+    //新增用户
+    @Override
+    public boolean save(User user) {
+        //设置默认密码
+        user.setPassword(SecureUtil.md5(PasswordConstant.DEFAULT_PASSWORD));
+        //补齐角色code
+        Role role = roleMapper.findById(user.getRoleId());
+        user.setRoleCode(role.getRoleCode());
+
+        return userMapper.save(user);
     }
 }
