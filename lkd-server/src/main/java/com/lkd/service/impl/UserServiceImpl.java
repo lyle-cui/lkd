@@ -79,4 +79,10 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.save(user);
     }
+
+    //修改用户
+    @Override
+    public boolean update(User user) {
+        return userMapper.update(user);
+    }
 }

@@ -15,4 +15,7 @@ public interface UserService {
 
     //新增用户
     boolean save(User user);
+
+    //更新用户
+    boolean update(User user);
 }

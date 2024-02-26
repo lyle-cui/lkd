@@ -27,4 +27,11 @@ public class UserController {
         boolean result = userService.save(user);
         return Result.success(result);
     }
+
+    //修改用户
+    @PutMapping
+    public Result update(@RequestBody User user) {
+        boolean result = userService.update(user);
+        return Result.success(result);
+    }
 }

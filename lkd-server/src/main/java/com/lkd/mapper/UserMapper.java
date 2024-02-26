@@ -21,4 +21,7 @@ public interface UserMapper{
     //新增用户
     @Insert("insert into tb_user values (null,#{roleId}, #{userName}, #{loginName}, #{password}, #{secret}, #{roleCode}, #{mobile}, #{regionId}, #{regionName}, #{status}, #{image})")
     boolean save(User user);
+
+    //更新用户
+    boolean update(User user);
 }
