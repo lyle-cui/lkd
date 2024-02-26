@@ -3,21 +3,31 @@ package com.lkd.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.lkd.constant.MessageConstant;
 import com.lkd.constant.StatusConstant;
 import com.lkd.dto.LoginDto;
+import com.lkd.entity.Role;
 import com.lkd.exception.BusinessException;
+import com.lkd.mapper.RoleMapper;
 import com.lkd.mapper.UserMapper;
+import com.lkd.result.PageBean;
 import com.lkd.service.UserService;
 import com.lkd.entity.User;
+import com.lkd.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UserServiceImpl  implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private RoleMapper roleMapper;
 
     //用户登录
     @Override
@@ -39,5 +49,21 @@ public class UserServiceImpl  implements UserService {
             throw new BusinessException(MessageConstant.ACCOUNT_LOCKED);
         }
         return user;
+    }
+
+    //用户搜索
+    @Override
+    public PageBean<UserVO> search(Integer pageIndex, Integer pageSize, String userName) {
+        //分页查询
+        PageHelper.startPage(pageIndex, pageSize);
+        List<UserVO> list = userMapper.search(userName);
+        //查询角色信息
+        for (UserVO userVO : list) {
+            Integer roleId = userVO.getRoleId();
+            Role role = roleMapper.findById(roleId);
+            userVO.setRole(role);
+        }
+        Page<UserVO> page = (Page<UserVO>) list;
+        return new PageBean<>(pageIndex, pageSize, (long) page.getPages(), page.getTotal(), list);
     }
 }
