@@ -24,4 +24,12 @@ public class ReportController {
         Integer count = reportService.countOrder(start, end);
         return Result.success(count);
     }
+
+    // 销售额统计
+    @GetMapping("/orderAmount")
+    public Result orderAmount(@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime start,
+                              @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime end) {
+        Double amount = reportService.sumOrderAmount(start, end);
+        return Result.success(amount);
+    }
 }

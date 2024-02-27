@@ -18,4 +18,10 @@ public class ReportServiceImpl implements ReportService {
     public Integer countOrder(LocalDateTime start, LocalDateTime end) {
         return reportMapper.countOrder(start, end);
     }
+
+    //统计销售额
+    @Override
+    public Double sumOrderAmount(LocalDateTime start, LocalDateTime end) {
+        return reportMapper.sumOrderAmount(start, end);
+    }
 }
