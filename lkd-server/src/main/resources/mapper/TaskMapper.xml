@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lkd.mapper.TaskMapper">
+
+    <select id="countByTypeAndStatus" resultType="java.lang.Integer">
+        select count(*)
+        from tb_task t join tb_task_type tt on t.product_type_id = tt.type_id
+        <where>
+            <if test="status != null">
+                t.task_status = #{status}
+            </if>
+            <if test="type != null">
+                and tt.type = #{type}
+            </if>
+            <if test="start != null and end != null">
+                and t.create_time between #{start} and #{end}
+            </if>
+        </where>
+    </select>
+</mapper>
