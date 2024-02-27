@@ -19,4 +19,7 @@ public interface PartnerService {
 
     //删除合作商
     boolean delete(Integer id);
+
+    //查询合作商数量
+    Integer count();
 }

@@ -29,4 +29,8 @@ public interface PartnerMapper {
     //删除合作商
     @Delete("delete from tb_partner where id = #{id}")
     boolean delete(Integer id);
+
+    //统计合作商数量
+    @Select("select count(*) from tb_partner")
+    Integer count();
 }

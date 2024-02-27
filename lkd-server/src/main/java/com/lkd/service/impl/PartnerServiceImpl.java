@@ -70,4 +70,10 @@ public class PartnerServiceImpl implements PartnerService {
         return partnerMapper.delete(id);
     }
 
+    //统计合作商数量
+    @Override
+    public Integer count() {
+        return partnerMapper.count();
+    }
+
 }

@@ -51,4 +51,11 @@ public class PartnerController {
         return Result.success(result);
     }
 
+    //合作商数量统计
+    @GetMapping("/count")
+    public Result count(){
+        Integer count = partnerService.count();
+        return Result.success(count);
+    }
+
 }
