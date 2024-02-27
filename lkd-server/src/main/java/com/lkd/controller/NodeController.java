@@ -42,4 +42,11 @@ public class NodeController {
         List<VendingMachineVO> vmList = nodeService.vmListByNodeId(nodeId);
         return Result.success(vmList);
     }
+
+    // 点位数量统计
+    @GetMapping("/count")
+    public Result nodeCount(){
+        Integer count = nodeService.nodeCount();
+        return Result.success(count);
+    }
 }

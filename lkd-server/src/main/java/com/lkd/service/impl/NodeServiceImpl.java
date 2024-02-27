@@ -82,4 +82,10 @@ public class NodeServiceImpl implements NodeService {
         }
         return vmList;
     }
+
+    //统计点位数量
+    @Override
+    public Integer nodeCount() {
+        return nodeMapper.countNodes();
+    }
 }

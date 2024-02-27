@@ -17,4 +17,7 @@ public interface NodeService {
 
     //根据点位id查询点位下的虚拟机
     List<VendingMachineVO> vmListByNodeId(Long nodeId);
+
+    //点位数量统计
+    Integer nodeCount();
 }

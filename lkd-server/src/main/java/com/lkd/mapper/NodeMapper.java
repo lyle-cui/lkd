@@ -33,4 +33,8 @@ public interface NodeMapper {
     //根据id查询点位
     @Select("select * from tb_node where id = #{nodeId}")
     NodeVO findById(Long nodeId);
+
+    //统计点位数量
+    @Select("select count(*) from tb_node")
+    Integer countNodes();
 }
